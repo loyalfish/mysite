@@ -9,7 +9,7 @@ class IndexView(generic.ListView):
     context_object_name = "questions"
     def get_queryset(self):
         return Question.objects.all()
-        
+
 
 
 class DetailView(generic.DetailView):
@@ -31,7 +31,7 @@ def vote(request, q_id):
         choice.votes += 1
         choice.save()
 
-    return HttpResponseRedirect( reverse("polls:result", args=(q_id, )) )
+    return HttpResponseRedirect( reverse("polls:results", args=(q_id, )) )
 
 
 def meme(request):
